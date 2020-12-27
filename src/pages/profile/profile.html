@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <img style="width: 100px; height: 100px; border-radius: 50px; align-items: center;" src="../../assets/imgs/logo.png">
+    <ion-item>Name: {{user.name}}</ion-item>
+    <ion-item>Email: {{user.email}}</ion-item>
+    <ion-item>Phone: {{user.phno}}</ion-item>
+    <ion-item>City: {{user.city}}</ion-item>
+  </ion-list>
+  <button ion-button (click)="callEditProfilePage()">Edit Profile</button>
+</ion-content>

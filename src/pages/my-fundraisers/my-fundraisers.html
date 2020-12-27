@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Fundraisers</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="isNew">
+  <ion-card>
+    <ion-card-header>
+      <ion-item>Please create a fundraiser first.</ion-item>  
+    </ion-card-header>
+  </ion-card>
+</ion-content>
+
+<ion-content padding *ngIf="!isNew">
+  <ion-card *ngFor="let url of urlArr">
+    <ion-card-header>
+      <ion-item>Fundraiser created for {{url.ngo}}</ion-item>
+      <ion-item *ngIf="url.subCategory!=''">SubCategory: {{url.subCategory}}</ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>Link: <a [href]="url.link">{{url.link}}</a></ion-item>
+        <ion-item>Amount Generated: {{url.amountRaised}} Rs</ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

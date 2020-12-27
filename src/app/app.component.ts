@@ -3,8 +3,12 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { AuthPage } from '../pages/auth/auth';
+import { ApiProvider } from '../providers/api/api';
+import { UtilProvider } from '../providers/util/util'; 
+import { AuthProvider } from '../providers/auth/auth';
+import { ProfilePage } from '../pages/profile/profile';
+import { MyFundraisersPage } from '../pages/my-fundraisers/my-fundraisers';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,37 +16,35 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = AuthPage;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public api: ApiProvider,
+    public auth: AuthProvider,
+    public util: UtilProvider
   ) {
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
-    ];
-
+      {title:"Profile", component:ProfilePage},
+      {title:"My Fundraisers", component:MyFundraisersPage},
+      {title:"Log out", component:AuthPage}
+    ]
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      // this.api.setAllKeys();
     });
   }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+  openPage(page){
+    this.nav.push(page.component);
   }
 }

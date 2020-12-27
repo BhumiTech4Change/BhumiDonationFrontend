@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ngoSubCat.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>{{ngoSubCat.description}}</p>
+  <button ion-button (click)="createFundraiser()">Create Fundraiser</button>
+  <ion-item *ngIf="linkCreated">
+    Shareable Link:
+    <ion-label>{{link}}</ion-label>
+  </ion-item>
+</ion-content>

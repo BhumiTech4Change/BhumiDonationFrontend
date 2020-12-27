@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Fundraiser</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Create a fundraiser with the NGO
+    </ion-card-header>
+    <ion-card-content>
+      <h3>Description</h3>
+      <p>{{subCat.ngoDesc}}</p>
+      <button ion-button (click)="createFundraiser()">Create fundraiser</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-item>
+    SubProjects of the NGO are
+  </ion-item>
+  <ion-card *ngFor = "let subCat of subCatArr" (click)="displaySingleSubCat(subCat)">
+    <ion-card-content>{{subCat.name}}</ion-card-content>
+  </ion-card>
+</ion-content>
