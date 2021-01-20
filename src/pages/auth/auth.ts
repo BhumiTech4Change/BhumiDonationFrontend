@@ -6,7 +6,7 @@ import { SERVER_URL } from '../../providers/environment/environment'
 import { HomePage } from '../home/home';
 import { SignupPage } from '../signup/signup'
 import { UtilProvider } from '../../providers/util/util';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT } from '@angular/common'; 
 
 export interface User{
   email:string,
