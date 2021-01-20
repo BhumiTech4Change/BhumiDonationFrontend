@@ -19,9 +19,11 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item lines="none" class="loginItems">
+        <ion-label>
+          <ion-icon name="person"></ion-icon>
+        </ion-label>
         <ion-input (keyup)="inputValidation(user.email, 4, $event)" type="email" [(ngModel)]='user.email' align="left" placeholder="Email"></ion-input>
         <button ion-button *ngIf="isEmail">
-          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
         </button>
       </ion-item>
       <ion-item lines="none" class="loginItems">
