@@ -1,0 +1,7 @@
+{
+  "name": "fundraiserApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

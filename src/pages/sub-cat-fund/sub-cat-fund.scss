@@ -1,0 +1,38 @@
+page-sub-cat-fund {
+    ion-icon{
+        color:#75AA3B
+    }
+    p{
+        text-align: justify;
+    }
+    .content{
+        // text-align: center;
+    }
+    .icon-size{
+        font-size: 30px;
+        vertical-align: middle;
+        color: black;
+    }
+    .icon-image{
+        height:25px;
+        width:25px;
+        color: black;
+    }
+    // .image{
+    //     transform: scale(1.55);
+    // }
+    .top-pad{
+        margin-top: 20px;
+    }
+    .button-div-main{
+        background-color:#75AA3B ;
+        font-size: 30px;
+    }
+    .center{
+        text-align: center;
+    }
+    .button-div{
+        background-color: black;
+        margin-left: 10px
+    }
+}
