@@ -4,6 +4,7 @@ import { SubCatProvider } from '../../providers/sub-cat/sub-cat';
 import { SubCatFundPage } from '../sub-cat-fund/sub-cat-fund';
 import { ApiProvider } from '../../providers/api/api';
 import { UtilProvider } from '../../providers/util/util';
+import { SERVER_URL } from '../../providers/environment/environment';
 
 @IonicPage()
 @Component({

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SubCatProvider } from '../../providers/sub-cat/sub-cat';
 import { ApiProvider } from '../../providers/api/api';
 import { UtilProvider } from '../../providers/util/util';
+import { SERVER_URL } from '../../providers/environment/environment';
 
 @IonicPage()
 @Component({
