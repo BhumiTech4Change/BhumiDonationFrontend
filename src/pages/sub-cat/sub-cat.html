@@ -10,15 +10,61 @@
       Create a fundraiser with the NGO
     </ion-card-header>
     <ion-card-content>
-      <h3>Description</h3>
+      <ion-grid>
+        <ion-row>
+
+          <ion-col col-4>
+            <img class="image" src ="../../assets/imgs/bhumi.png" style="width:max-content;height: 100px;">
+          </ion-col>
+
+          <ion-col>
+              <ion-row>
+                <ion-col col-2><ion-icon class="icon-image" name="prefix-location-solid"></ion-icon></ion-col>
+                <ion-col>Chennai, Mumbai and Kolkata</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col  col-2><ion-icon class="icon-size" name="heart"></ion-icon></ion-col>
+                <ion-col>Education, Animal welfare and environment</ion-col>
+              </ion-row>
+          </ion-col>
+              
+        </ion-row>
+      </ion-grid>
+      <div class="top-bottom-align">
+      <h2>Description</h2>
       <p>{{subCat.ngoDesc}}</p>
-      <button ion-button (click)="createFundraiser()">Create fundraiser</button>
+      </div>
+      <div class="center"><button ion-button (click)="createFundraiser()">Create fundraiser<div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div></button></div>
     </ion-card-content>
   </ion-card>
   <ion-item>
     SubProjects of the NGO are
   </ion-item>
   <ion-card *ngFor = "let subCat of subCatArr" (click)="displaySingleSubCat(subCat)">
+<<<<<<< HEAD
     <ion-card-content>{{subCat.name}}</ion-card-content>
+=======
+    <ion-card-content>
+      <ion-grid>
+      <ion-row>
+
+        <ion-col col-5>
+          <div class="card-text">{{subCat.name}}</div>
+        </ion-col>
+
+        <ion-col>
+            <ion-row>
+              <ion-col col-2><ion-icon class="icon-image" name="prefix-location-solid"></ion-icon></ion-col>
+              <ion-col>Chennai, Mumbai and Kolkata</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col  col-2><ion-icon class="icon-size" name="heart"></ion-icon></ion-col>
+              <ion-col>Education, Animal welfare and environment</ion-col>
+            </ion-row>
+        </ion-col>
+            
+      </ion-row>
+    </ion-grid></ion-card-content>
+>>>>>>> 0d32025d2cbdea26cfa1558eefbd83c6ba74d653
   </ion-card>
 </ion-content>

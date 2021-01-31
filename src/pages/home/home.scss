@@ -1,3 +1,46 @@
 page-home {
-
+    
+.card{
+    border-radius: 20px;
+}
+.disable{
+    display: none;
+}
+.search-box{
+    background-color: rgb(248, 248, 248);
+    padding-left: 5%;
+    font-size: large;
+}
+.image{
+    // border: solid;
+    // border-color: black;
+    transform: scale(1.55);
+}
+.bold{
+    font-weight: bold;
+}
+.align-title{
+    padding-top:2%;
+    // vertical-align: middle;
+}
+.icon-size{
+    font-size: 30px;
+    vertical-align: middle;
+}
+.right{
+    float: right;
+}
+.icon-image{
+    height:25px;
+    width:25px;
+}
+.right-gap{
+    margin-right: 2%;
+}
+.primary-color{
+    color:  #75AA3B;
+}
+.secondary-color{
+    color: #e18a23;
+}
 }

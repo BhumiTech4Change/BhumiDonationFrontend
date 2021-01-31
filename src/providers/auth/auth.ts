@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { UtilProvider } from '../util/util';
-import { ApiProvider } from '../api/api';
+// import { ApiProvider } from '../api/api';
 
 @Injectable()
 export class AuthProvider {
 
   constructor(
     private util: UtilProvider,
-    private api: ApiProvider,
+    // private api: ApiProvider,
 
   ) {
     console.log('Hello AuthProvider Provider');
