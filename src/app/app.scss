@@ -7,3 +7,53 @@
     font-family: "Merriweather";
     src: url("../assets/fonts/Merriweather-Light.ttf")
 }
+ion-icon {
+    &[class*="prefix-"] {
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        width: 1em;
+        height: 1em;
+    }
+    // custom icons
+    &[class*="prefix-filter-solid"] {
+        mask-image: url(../assets/icon/filter-solid.svg);
+    }
+    &[class*="prefix-location-solid"] {
+        mask-image: url(../assets/icon/map-marker-alt-solid.svg);
+    }
+    &[class*="prefix-angle-right-solid"] {
+        mask-image: url(../assets/icon/angle-right-solid.svg);
+    }
+    &[class*="prefix-envelope-solid"] {
+        mask-image: url(../assets/icon/angle-envelope-solid.svg);
+    }
+    &[class*="prefix-facebook"] {
+        mask-image: url(../assets/icon/facebook-square-brands.svg);
+    }
+    &[class*="prefix-whatsapp"] {
+        mask-image: url(../assets/icon/whatsapp-brands.svg);
+    }
+    &[class*="prefix-check-square-solid"] {
+        mask-image: url(../assets/icon/check-square-solid.svg);
+    }
+}
+.menu-button{
+    font-size: large;
+    margin-bottom: -15px;
+}
+ion-title{
+    color:#75AA3B;
+}
+.underline{
+    border-bottom: solid;
+    border-color: #75AA3B;
+}
+.primary-color{
+    color:#75AA3B;
+    font-size: larger;
+}
+.list{
+    margin-top: 20px;
+}

@@ -31,7 +31,7 @@ export class MyApp {
     this.initializeApp();
     this.pages = [
       {title:"Profile", component:ProfilePage},
-      {title:"My Fundraisers", component:MyFundraisersPage},
+      {title:"Past Donations", component:MyFundraisersPage},
       {title:"Log out", component:AuthPage}
     ]
   }

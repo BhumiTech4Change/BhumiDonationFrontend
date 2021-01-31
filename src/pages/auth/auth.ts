@@ -4,8 +4,9 @@ import { ApiProvider } from '../../providers/api/api';
 import { HttpClient } from '@angular/common/http';
 import { SERVER_URL } from '../../providers/environment/environment'
 import { HomePage } from '../home/home';
+import { SignupPage } from '../signup/signup'
 import { UtilProvider } from '../../providers/util/util';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT } from '@angular/common'; 
 
 export interface User{
   email:string,
@@ -31,7 +32,7 @@ export class AuthPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private api:ApiProvider,
+    public api:ApiProvider,
     private http:HttpClient,
     private util:UtilProvider,
     @Inject(DOCUMENT) private doc
@@ -193,5 +194,8 @@ export class AuthPage {
       signupBtn.classList.remove("btnNotActive");
       signupBtn.classList.add("btnActive");
     }
+  }
+  goToSignup(){
+    this.navCtrl.push(SignupPage)
   }
 }

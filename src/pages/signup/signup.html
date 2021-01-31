@@ -1,0 +1,44 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>signup</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding>
+  <div class="heading">Sign Up</div>
+  <div class="card" >
+      <ion-item class="align padding" lines="none">
+        <ion-input class="align" (keyup)="inputValidation(signupUser.name, 2, $event)" type="text" [(ngModel)]='signupUser.name' placeholder="Full Name" required></ion-input>
+        <!-- <button ion-button *ngIf="isName" size="small" fill="clear" color="success" slot="end">
+          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
+        </button> -->
+      </ion-item>
+      <ion-item class="align padding" lines="none">
+        <ion-input (keyup)="inputValidation(signupUser.phno, 3, $event)" type="tel" [(ngModel)]='signupUser.phno' placeholder="Phone" required></ion-input>
+        <!-- <button ion-button *ngIf="isPhone" max=10 size="small" fill="clear" color="success" slot="end">
+          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
+        </button> -->
+      </ion-item>
+      <ion-item class="align padding" lines="none">
+        <ion-input (keyup)="inputValidation(signupUser.email, 4, $event)" type="email" [(ngModel)]='signupUser.email' placeholder="Email" required></ion-input>
+        <!-- <button ion-button *ngIf="isEmail" size="small" fill="clear" color="success" slot="end">
+          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
+        </button> -->
+      </ion-item>
+      <ion-item class="align padding" lines="none">
+        <ion-input (keyup)="inputValidation(signupUser.city, 5, $event)" type="text" [(ngModel)]='signupUser.city' placeholder="City" required></ion-input>
+        <!-- <button ion-button *ngIf="isCity" size="small" fill="clear" color="success" slot="end">
+          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
+        </button> -->
+      </ion-item>
+      <ion-item class="align padding" lines="none">
+        <ion-input (keyup)="inputValidation(signupUser.password, 6, $event)" [(ngModel)]='signupUser.password' type='password' placeholder="Password" required></ion-input>
+        <!-- <button ion-button *ngIf="isPassword" size="small" fill="clear" color="success" slot="end">
+          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
+        </button> -->
+      </ion-item>
+      Already have an account?
+      <button class="simple-button" (click)="goToLogin()">Login</button><br><br>
+      <button ion-button (click)='signup(signupUser)' [disabled]="signupUser.password.length<=8">Signup<div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div></button>
+  </div>
+</ion-content>

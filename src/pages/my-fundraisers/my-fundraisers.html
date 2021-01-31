@@ -13,16 +13,36 @@
 </ion-content>
 
 <ion-content padding *ngIf="!isNew">
-  <ion-card *ngFor="let url of urlArr">
+
+  <ion-card>
     <ion-card-header>
-      <ion-item>Fundraiser created for {{url.ngo}}</ion-item>
-      <ion-item *ngIf="url.subCategory!=''">SubCategory: {{url.subCategory}}</ion-item>
+      <ion-item class="secondary-color">Total Fund Raised</ion-item>
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item>Link: <a [href]="url.link">{{url.link}}</a></ion-item>
-        <ion-item>Amount Generated: {{url.amountRaised}} Rs</ion-item>
-      </ion-list>
+      <ion-item class="primary-color">Amount Generated: {{total}} Rs</ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card" *ngFor="let url of urlArr" (click)="goToCampaign(url.shortUrl)">
+    <ion-card-header>
+      <ion-item class="secondary-color">Fundraiser created for {{url.ngo}}</ion-item>
+      <ion-item class="primary-color pad-left" *ngIf="url.subCategory!=''">SubCategory: {{url.subCategory}}</ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <img class="image" src ="../../assets/imgs/bhumi.png" style="width:max-content;height: 100px;">
+          </ion-col>
+          <ion-col col-8>
+            <ion-row><ion-col>Link: <a [href]="url.link">{{url.link}}</a></ion-col></ion-row>
+            <ion-row><ion-col>Amount Generated: {{url.amountRaised}} Rs</ion-col></ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
     </ion-card-content>
   </ion-card>
 </ion-content>

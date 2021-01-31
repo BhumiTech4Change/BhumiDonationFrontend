@@ -1,14 +1,21 @@
-page-auth {
+page-signup {
     #content{
         // margin: 0px;
         // display:flex;
         // background-color: white;
         // flex-wrap: wrap;
     }
-    // .innerDiv{
-    //     justify-content: center; 
-    //     align-items: center;
-    // }
+    ion-icon{
+        color:#75AA3B
+    }
+    .button-div{
+        background-color: black;
+        margin-left: 10px
+    }
+    .innerDiv{
+        // justify-content: center; 
+        // align-items: center;
+    }
     // .innerDiv:first-child{
     //     background-color: lightblue;
     // }
@@ -25,22 +32,15 @@ page-auth {
     // .label-ios{
     //     margin: 0px;
     // }
-    // .labelText p:last-child{
-        
-    // // }
-    .button-div{
-        background-color: black;
-        margin-left: 10px
-    }
     .heading{
-        padding-top: 30vh;
+        padding-top: 10vh;
         color:#75AA3B;
         text-align: center;
         font-size: 30px;
     }
     .simple-button{
         background-color: white;
-        color:#75AA3B ;
+        color: #75AA3B;
     }
     .align{
         align-content: center;
@@ -63,12 +63,6 @@ page-auth {
         // display: flex;
         // flex-wrap: wrap;
     }
-    // .card{
-    //     border-radius: 20px;
-    //     border: 2px solid grey;
-    //     display: flex;
-    //     flex-wrap: wrap;
-    // }
     // .card ion-card-header {
     //     width: 100%;
     //     padding: 0px;
@@ -79,6 +73,7 @@ page-auth {
     // .card ion-card-content {
     //     flex-wrap: wrap;
     //     width: 100%;
+    //     text-align: center;
     // }
     // .btn{
     //     margin: none;
@@ -117,4 +112,3 @@ page-auth {
     //     font-size: 20px;
     // }
 }
-
