@@ -34,7 +34,9 @@ export class SubCatFundPage {
   }
 
   displayFundraiserLink(link){
-    this.util.presentShareAlert("Here is your shareable link",link);
+    let shareableLink = `${SERVER_URL}/fundraiser/${link}`;
+    console.log("sharable link:",shareableLink)
+    this.util.presentAlert("Here is your shareable link",shareableLink);
   }
 
   createFundraiser(){
