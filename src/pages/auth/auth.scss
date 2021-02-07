@@ -1,33 +1,4 @@
 page-auth {
-    #content{
-        // margin: 0px;
-        // display:flex;
-        // background-color: white;
-        // flex-wrap: wrap;
-    }
-    // .innerDiv{
-    //     justify-content: center; 
-    //     align-items: center;
-    // }
-    // .innerDiv:first-child{
-    //     background-color: lightblue;
-    // }
-    // .labelText{
-    //     font-size: 24px;
-    //     font-family: 'Light';
-    //     text-align: center;
-    //     color: black;
-    //     // display: flex;
-    //     // justify-content: center;
-    //     // align-items: center;
-    //     // flex-wrap: wrap;
-    // }
-    // .label-ios{
-    //     margin: 0px;
-    // }
-    // .labelText p:last-child{
-        
-    // // }
     .button-div{
         background-color: black;
         margin-left: 10px
@@ -43,12 +14,7 @@ page-auth {
         color:#75AA3B ;
     }
     .align{
-        align-content: center;
-        align-self: center;
-        // display: block;
         text-align: center;
-        // margin-left: auto;
-        // margin-right: auto;
     }
     .padding{
         padding-top: 20px;
@@ -57,11 +23,12 @@ page-auth {
     }
     .card{
         text-align: center;
-        // display: flex;
-        // text-align: center;
-        // box-shadow: none;
-        // display: flex;
-        // flex-wrap: wrap;
+    }
+    .footer_container{
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%,0);
+        bottom: 2%;
     }
     // .card{
     //     border-radius: 20px;

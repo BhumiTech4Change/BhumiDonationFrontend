@@ -21,28 +21,29 @@ export class MyFundraisersPage {
   constructor(
     public subCat: SubCatProvider,
     private api: ApiProvider,
+    // public menuCtrl: MenuController,
     public navCtrl: NavController,
     // private util: UtilProvider
   ) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MyFundraisersPage');
+    // console.log('ionViewDidLoad MyFundraisersPage');
     this.getAllFundraiserURL();
     
   }
 
   async getAllFundraiserURL(){
-    console.log("Token in my fundraiser: ",await this.api.getToken())
+    // console.log("Token in my fundraiser: ",await this.api.getToken())
     this.api.get("/api/fundraisers").subscribe((data:any)=>{
-      console.log("All fundraisers links are: ",data);
+      // console.log("All fundraisers links are: ",data);
       if(data.fundraisers!=undefined){
         this.urlArr.length=0;
         data.fundraisers.forEach((singleURL:any)=>{
-          console.log(singleURL);
+          // console.log(singleURL);
           singleURL.link=`${SERVER_URL}/fundraiser/${singleURL.shortUrl}`;
           this.urlArr.push(singleURL);
         })
-        console.log("Array is: ",this.urlArr)
+        // console.log("Array is: ",this.urlArr)
         this.isNew = false;
         this.totalFund();
       }else{
@@ -52,7 +53,7 @@ export class MyFundraisersPage {
   }
 
   goToCampaign(shortID){
-    console.log(shortID);
+    // console.log(shortID);
     this.navCtrl.push(CampaignPage,{shortID:shortID});
   }
 
@@ -61,9 +62,7 @@ export class MyFundraisersPage {
     for (let i = 0; i < this.urlArr.length; i++) {
       // console.log("Amount",this.urlArr[i].amountRaised)
       this.total += this.urlArr[i].amountRaised;
-      console.log("total amount",this.total);
+      // console.log("total amount",this.total);
   }
   }
-
-
 }

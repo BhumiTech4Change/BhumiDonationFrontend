@@ -30,7 +30,7 @@ export class EditProfilePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditProfilePage');
+    // console.log('ionViewDidLoad EditProfilePage');
     this.util.getFromStorage("user").then((userProfile:any)=>{
       this.userCurrentData = userProfile;
     })

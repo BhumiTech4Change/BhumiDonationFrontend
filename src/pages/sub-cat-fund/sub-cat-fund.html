@@ -5,50 +5,43 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-
-      <ion-col col-4>
-        <img class="image" src="../../assets/imgs/bhumi.png" style="width:max-content;height: 100px;">
-      </ion-col>
-
-      <ion-col>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
         <ion-row>
-          <ion-col col-2>
-            <ion-icon class="icon-image" name="prefix-location-solid"></ion-icon>
-          </ion-col>
-          <ion-col>Chennai, Mumbai and Kolkata</ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-2>
-            <ion-icon class="icon-size" name="heart"></ion-icon>
-          </ion-col>
-          <ion-col>Education, Animal welfare and environment</ion-col>
-        </ion-row>
-      </ion-col>
 
-    </ion-row>
-  </ion-grid>
-  <div class="top-bottom-align">
-    <h4 class="top-pad">Description</h4>
-    <p>{{ngoSubCat.description}}</p>
-  </div>
-    <div class="center">
-      <button ion-button (click)="createFundraiser()">Create Fundraiser
-        <div class="button-div">
-          <ion-icon name="prefix-angle-right-solid"></ion-icon>
+          <ion-col col-5>
+            <div class="card-text">{{ngoSubCat.name}}</div>
+          </ion-col>
+
+          <ion-col>
+            <ion-row>
+              <ion-col col-2>
+                <ion-icon class="icon-image" name="prefix-location-solid"></ion-icon>
+              </ion-col>
+              <ion-col class="cap">{{Sublocation}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-2>
+                <ion-icon class="icon-size" name="heart"></ion-icon>
+              </ion-col>
+              <ion-col class="cap">{{Subcause}}</ion-col>
+            </ion-row>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+      <div class="top-bottom-align">
+        <h4 class="top-pad">Description</h4>
+        <p>{{ngoSubCat.description}}</p>
+      </div>
+        <div class="center">
+          <button ion-button (click)="createFundraiser()">Create Fundraiser
+            <div class="button-div">
+              <ion-icon name="prefix-angle-right-solid"></ion-icon>
+            </div>
+          </button>
         </div>
-      </button>
-    </div>
-    <!-- <ion-item *ngIf="linkCreated">
-    <div class="content">
-    <div class="button-div-main"><ion-icon name="prefix-angle-right-solid"></ion-icon></div>
-    Link Created
-    <ion-label>{{link}}</ion-label>
-    share
-    <div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div>
-    <div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div>
-    <div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div>
-    </div>
-  </ion-item> -->
+      </ion-card-content>
+    </ion-card>
 </ion-content>

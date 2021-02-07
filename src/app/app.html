@@ -1,4 +1,4 @@
-<ion-menu [content]="content" type="overlay">
+<ion-menu id="myMenu" [content]="content" type="overlay">
   <ion-header>
     <ion-toolbar>
       <ion-title color="primary" class="primary-color">Menu</ion-title>
@@ -9,6 +9,9 @@
     <ion-list class="list" *ngFor="let page of pages" (click)="openPage(page)">
       <button class="menu-button underline" menuClose ion-item>{{page.title}}</button>
     </ion-list>
+    <div class="footer_container">
+      <img class="footer" src="../../assets/imgs/bhumi_cropped.png" style="width:max-content">
+    </div>
   </ion-content>
 </ion-menu>
 

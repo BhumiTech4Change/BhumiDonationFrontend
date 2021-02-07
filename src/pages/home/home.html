@@ -4,9 +4,9 @@
       <ion-icon color="primary" class="icon-size" name="menu"></ion-icon>
     </button>
     <ion-title class="align-title">
-      <span class="bold">Hello,</span><span>{{name}}</span>
+      <span class="bold">Hello,</span><span class="name">{{name}}</span>
       <span>
-        <ion-icon (click)="notifications()" color="secondary" class="icon-size right" name="notifications"></ion-icon>
+        <!-- <ion-icon (click)="notifications()" color="secondary" class="icon-size right" name="notifications"></ion-icon> -->
         <ion-icon (click)="showSearch()" class="right right-gap" color="secondary" name="prefix-filter-solid"></ion-icon>
       </span>
     </ion-title>
@@ -16,26 +16,25 @@
 
 <ion-content padding>
   <!-- <h3>Here are the available NGO's, please select any one to proceed</h3>  -->
-  <ion-card class="card" *ngFor="let ngo of ngoArr | search: searchText" (click)="callNewPage(ngo.name)">
-    <ion-card-header>
+  <ion-card class="card" *ngFor="let ngo of ngoArr | search: searchText" (click)="callNewPage(ngo.name , ngo.location , ngo.cause)">
+    <ion-card-header class="cap">
       {{ngo.name}}
     </ion-card-header>
     <ion-card-content>
       <ion-grid>
         <ion-row>
-
           <ion-col col-4>
-            <img class="image" src ="../../assets/imgs/bhumi.png" style="width:max-content;height: 100px;">
+            <img class="image" src ="{{Server_url}}/uploads/{{ngo.logo}}" style="width:max-content;">
           </ion-col>
 
           <ion-col>
               <ion-row>
                 <ion-col col-2><ion-icon class="icon-image" name="prefix-location-solid"></ion-icon></ion-col>
-                <ion-col>Chennai, Mumbai and Kolkata</ion-col>
+                <ion-col class="cap">{{ngo.location}}</ion-col>
               </ion-row>
               <ion-row>
                 <ion-col  col-2><ion-icon class="icon-size" name="heart"></ion-icon></ion-col>
-                <ion-col>Education, Animal welfare and environment</ion-col>
+                <ion-col class="cap">{{ngo.cause}}</ion-col>
               </ion-row>
           </ion-col>
               

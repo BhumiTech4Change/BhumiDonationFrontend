@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { UtilProvider } from '../../providers/util/util';
 import { EditProfilePage } from '../edit-profile/edit-profile';
 
@@ -13,11 +13,12 @@ export class ProfilePage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
+    // public menuCtrl: MenuController,
     public util: UtilProvider
-  ) { }
+  ) {  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    // console.log('ionViewDidLoad ProfilePage');
     this.displayUserData()
   }
 
@@ -31,8 +32,8 @@ export class ProfilePage {
   async displayUserData(){
     await this.util.getFromStorage("user").then((data:any)=>{
       this.user = data.user;
-      console.log("Data is: ",data)
-      console.log("User is: ",this.user)
+      // console.log("Data is: ",data)
+      // console.log("User is: ",this.user)
     })
   }
 

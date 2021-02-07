@@ -8,9 +8,8 @@ export class AuthProvider {
   constructor(
     private util: UtilProvider,
     // private api: ApiProvider,
-
   ) {
-    console.log('Hello AuthProvider Provider');
+    // console.log('Hello AuthProvider Provider');
   }
 
   public user:any = {

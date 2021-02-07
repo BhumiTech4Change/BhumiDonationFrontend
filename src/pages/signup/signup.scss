@@ -1,10 +1,4 @@
 page-signup {
-    #content{
-        // margin: 0px;
-        // display:flex;
-        // background-color: white;
-        // flex-wrap: wrap;
-    }
     ion-icon{
         color:#75AA3B
     }
@@ -12,28 +6,8 @@ page-signup {
         background-color: black;
         margin-left: 10px
     }
-    .innerDiv{
-        // justify-content: center; 
-        // align-items: center;
-    }
-    // .innerDiv:first-child{
-    //     background-color: lightblue;
-    // }
-    // .labelText{
-    //     font-size: 24px;
-    //     font-family: 'Light';
-    //     text-align: center;
-    //     color: black;
-    //     // display: flex;
-    //     // justify-content: center;
-    //     // align-items: center;
-    //     // flex-wrap: wrap;
-    // }
-    // .label-ios{
-    //     margin: 0px;
-    // }
     .heading{
-        padding-top: 10vh;
+        padding-top: 5vh;
         color:#75AA3B;
         text-align: center;
         font-size: 30px;
@@ -45,10 +19,7 @@ page-signup {
     .align{
         align-content: center;
         align-self: center;
-        // display: block;
         text-align: center;
-        // margin-left: auto;
-        // margin-right: auto;
     }
     .padding{
         padding-top: 20px;
@@ -57,58 +28,18 @@ page-signup {
     }
     .card{
         text-align: center;
-        // display: flex;
-        // text-align: center;
-        // box-shadow: none;
-        // display: flex;
-        // flex-wrap: wrap;
     }
-    // .card ion-card-header {
-    //     width: 100%;
-    //     padding: 0px;
-    //     display: flex;
-    //     justify-content: space-around;
-    //     padding: 0px;
-    // }
-    // .card ion-card-content {
-    //     flex-wrap: wrap;
-    //     width: 100%;
-    //     text-align: center;
-    // }
-    // .btn{
-    //     margin: none;
-    //     width: inherit;
-    //     border-bottom: 2px solid grey;
-    // }
-    // .btn:first-child{
-    //     border-right: 2px solid grey;
-    // }
-    // .btn:last-child{
-    //     border-left: 1px solid grey;
-    // }
-    // .btnActive{
-    //     background-color: rgb(144, 181, 194);
-    // }
-    // .btnNotActive{
-    //     background-color: lightblue;
-    // }
-    // .loginBtn{
-    //     padding: 20px;
-    //     width: inherit;
-    //     font-size: 20px;
-    //     font-family: "Merriweather";
-    // }
-    // .signupBtn{
-    //     padding: 20px;
-    //     font-size: 20px;
-    //     width: inherit;
-    //     font-family: "Merriweather";
-    // }
-    // #sideNote{
-    //     font-size: 16px;
-    // }
-    // #sideNote b{
-    //     color: black; 
-    //     font-size: 20px;
-    // }
+    .align-left{
+        text-align: left;
+        color: red;
+    }
+    .login{
+        padding-top: 5vh;
+    }
+    .footer_container{
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%,0);
+        bottom: 2%;
+    }
 }

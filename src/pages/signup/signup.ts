@@ -47,10 +47,26 @@ export class SignupPage {
   public isName:boolean = false;
   public isCity:boolean = false;
   public isPassword:boolean = false;
+  public isChar:boolean = false;
+  public isNum:boolean = false;
+  public isSpecialChar:boolean = false;
+
+  validatePassword(data){
+    const charRegex = /(?=.*[a-z])(?=(.*[A-Z]))(?=(.*))/;
+    const numberRegex = /(?=(.*[0-9]))/;
+    const specialCharRegex = /(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])/;
+   // const lengthRegex = /{8,}/;
+   this.isChar = charRegex.test(data);
+   this.isNum = numberRegex.test(data);
+   this.isSpecialChar = specialCharRegex.test(data);
+   if(this.isChar && this.isNum && this.isSpecialChar){
+     this.isPassword = true;
+   }
+  }
 
   inputValidation(userData,dataType,ev){
-    const nameRegex = /^[ a-zA-Z]+$/;
-    const phoneRegex = /^\d+$/;
+    const nameRegex = /^(?=.*[A-Z])(?=.*[a-z]).{3,15}$/;
+    const phoneRegex =/^[0-9]{10}$/;
     const emailRegex = /\S+@\S+\.\S+/;
     const passwordRegex = /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/
     switch(dataType){
@@ -67,7 +83,8 @@ export class SignupPage {
         this.isCity = nameRegex.test(userData);
         break;
       case 6:
-        this.isPassword = passwordRegex.test(userData);
+        this.validatePassword(userData);
+        // this.isPassword = passwordRegex.test(userData);
         break;
       default: console.log("Invalid number");
         break;
@@ -75,7 +92,7 @@ export class SignupPage {
   }
 
   signup(user){
-    console.log("A new user is signing in: ",user);
+    // console.log("A new user is signing in: ",user);
     if(this.isName){
       if(this.isCity){
         if(this.isPhone){
@@ -88,7 +105,7 @@ export class SignupPage {
                 password: user.password, 
                 city:user.city
               }).subscribe((res:any)=>{
-                console.log("Response of login: ",res);
+                // console.log("Response of login: ",res);
                 this.navCtrl.push(HomePage);
                 // this.changeForm(2)
                 //after signup set all regex params to false
@@ -137,7 +154,7 @@ export class SignupPage {
   // }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
+    // console.log('ionViewDidLoad SignupPage');
   }
 
 }

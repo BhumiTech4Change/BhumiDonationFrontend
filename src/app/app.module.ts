@@ -25,6 +25,7 @@ import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { SignupPage } from '../pages/signup/signup';
 import { CampaignPage } from '../pages/campaign/campaign';
 import { SearchPipe } from '../pipes/search/search';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { SearchPipe } from '../pipes/search/search';
     ApiProvider,
     UtilProvider,
     AuthProvider,
-    SubCatProvider
+    SubCatProvider,
+    SocialSharing,
   ]
 })
 export class AppModule {}

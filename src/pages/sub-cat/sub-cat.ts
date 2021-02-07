@@ -13,6 +13,8 @@ import { SERVER_URL } from '../../providers/environment/environment';
 })
 export class SubCatPage {
 
+  Server_url = SERVER_URL;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -22,7 +24,7 @@ export class SubCatPage {
   ) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SubCatPage');
+    // console.log('ionViewDidLoad SubCatPage');
     this.displaySubCategories();
   }
 
@@ -34,16 +36,17 @@ export class SubCatPage {
     this.subCatArr = this.subCat.subCatArr;
   }
 
-  displaySingleSubCat(subCat){
-    console.log('subCat is: ', subCat)
+  displaySingleSubCat(subCat,sublocation,subcause){
+    // console.log('subCat is: ', subCat)
     this.subCat.sendSingleSubCatData(subCat);
-    this.navCtrl.push(SubCatFundPage)
+    // console.log(sublocation , subcause);
+    this.navCtrl.push(SubCatFundPage,{sublocation:sublocation , subcause:subcause})
   }
 
   displayFundraiserLink(link){
     let shareableLink = `${SERVER_URL}/fundraiser/${link}`;
-    console.log("sharable link:",shareableLink)
-    this.util.presentAlert("Here is your shareable link",shareableLink);
+    // console.log("sharable link:",shareableLink)
+    this.util.presentShareAlert("Here is your shareable link",shareableLink);
   }
 
   createFundraiser(){
@@ -54,11 +57,11 @@ export class SubCatPage {
       ngoId:this.subCat.ngo._id,
       description:this.subCat.ngo.description
     }
-    console.log("NgoObj for ngo: ",ngoObj)
+    // console.log("NgoObj for ngo: ",ngoObj)
     this.api.post("/api/fundraisers",ngoObj).subscribe((res:any)=>{
-      console.log("Response of create fundraiser is: ",res);
+      // console.log("Response of create fundraiser is: ",res);
       // this.subCat.getFundraiserURL(res.link,"ngo")
-      this.displayFundraiserLink(res.link);
+      this.displayFundraiserLink(res.shortUrl);
       
     })
   }
