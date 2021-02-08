@@ -14,17 +14,17 @@
         <ion-row>
 
           <ion-col col-4>
-            <img class="image" src ="../../assets/imgs/bhumi.png" style="width:max-content;height: 100px;">
+            <img class="image" src ="{{Server_url}}/uploads/{{subCat.ngo.logo}}" style="width:max-content;;">
           </ion-col>
 
           <ion-col>
               <ion-row>
                 <ion-col col-2><ion-icon class="icon-image" name="prefix-location-solid"></ion-icon></ion-col>
-                <ion-col>Chennai, Mumbai and Kolkata</ion-col>
+                <ion-col class="cap">{{subCat.ngo.location}}</ion-col>
               </ion-row>
               <ion-row>
                 <ion-col  col-2><ion-icon class="icon-size" name="heart"></ion-icon></ion-col>
-                <ion-col>Education, Animal welfare and environment</ion-col>
+                <ion-col class="cap">{{subCat.ngo.cause}}</ion-col>
               </ion-row>
           </ion-col>
               
@@ -40,31 +40,27 @@
   <ion-item>
     SubProjects of the NGO are
   </ion-item>
-  <ion-card *ngFor = "let subCat of subCatArr" (click)="displaySingleSubCat(subCat)">
-<<<<<<< HEAD
-    <ion-card-content>{{subCat.name}}</ion-card-content>
-=======
+  <ion-card *ngFor = "let subCategory of subCatArr" (click)="displaySingleSubCat(subCategory,subCat.ngo.location,subCat.ngo.cause)">
     <ion-card-content>
       <ion-grid>
       <ion-row>
 
         <ion-col col-5>
-          <div class="card-text">{{subCat.name}}</div>
+          <div class="card-text">{{subCategory.name}}</div>
         </ion-col>
 
         <ion-col>
             <ion-row>
               <ion-col col-2><ion-icon class="icon-image" name="prefix-location-solid"></ion-icon></ion-col>
-              <ion-col>Chennai, Mumbai and Kolkata</ion-col>
+              <ion-col class="cap">{{subCat.ngo.location}}</ion-col>
             </ion-row>
             <ion-row>
               <ion-col  col-2><ion-icon class="icon-size" name="heart"></ion-icon></ion-col>
-              <ion-col>Education, Animal welfare and environment</ion-col>
+              <ion-col class="cap">{{subCat.ngo.cause}}</ion-col>
             </ion-row>
         </ion-col>
             
       </ion-row>
     </ion-grid></ion-card-content>
->>>>>>> 0d32025d2cbdea26cfa1558eefbd83c6ba74d653
   </ion-card>
 </ion-content>

@@ -11,14 +11,14 @@ export class ApiProvider {
     public http: HttpClient,
     private util: UtilProvider,
   ) {
-    console.log('Hello ApiProvider Provider');
+    // console.log('Hello ApiProvider Provider');
   }
   
   public token:any = "";
 
   setAllKeys(){
     this.util.getAllKeysOfStorage().then((keys:any)=>{
-      console.log("Keys in storage are: ",keys);
+      // console.log("Keys in storage are: ",keys);
       for (let i = 0; i < keys.length; i++) {
         this.util.setToStorage(keys[i], null);
       }

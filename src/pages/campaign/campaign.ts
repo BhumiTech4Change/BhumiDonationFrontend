@@ -31,9 +31,9 @@ export class CampaignPage {
      }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CampaignPage');
+    // console.log('ionViewDidLoad CampaignPage');
     this.util.getFromStorage("user").then((data:any)=>{
-      console.log(data.user.name);
+      // console.log(data.user.name);
       this.name = data.user.name;
     });
     this.getSpecificFundraiserURL();
@@ -42,11 +42,9 @@ export class CampaignPage {
   async getSpecificFundraiserURL(){
 
     this.shortURL = await this.navParams.get("shortID");
-    console.log(this.shortURL);
-    // console.log("Token in my fundraiser: ",await this.api.getToken())
-    // this.shortURL = this.myFundraisers.
+    // console.log(this.shortURL);
     this.api.get(`/api/fundraisers/${this.shortURL}`).subscribe((data:any)=>{
-      console.log("fundraiser links is: ",data);
+      // console.log("fundraiser links is: ",data);
       if(data.fundraiser!=undefined){
         // this.url.length=0;
         this.url=data;
@@ -54,7 +52,7 @@ export class CampaignPage {
         //   singleURL.link=`${SERVER_URL}/fundraiser/${singleURL.shortUrl}`;
         //   this.url.push(singleURL);
         // })
-        console.log("Array is: ",this.url);
+        // console.log("Array is: ",this.url);
         // this.isNew = false;
         // this.totalFund();
       }else{

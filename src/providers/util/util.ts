@@ -1,6 +1,8 @@
 import { Injectable,ViewChild } from '@angular/core';
 import { AlertController, Nav } from 'ionic-angular';
 import { Storage } from '@ionic/storage'
+import { SocialSharing } from '@ionic-native/social-sharing';
+// import { LoadingController } from 'ionic-angular';
 
 @Injectable()
 export class UtilProvider {
@@ -9,9 +11,10 @@ export class UtilProvider {
   constructor(
     private alertCtrl: AlertController,
     private storage: Storage,
-    // public navCtrl: NavController
+    private socialSharing: SocialSharing,
+    // public loadingCtrl: LoadingController,
   ) {
-    console.log('Hello UtilProvider Provider');
+    // console.log('Hello UtilProvider Provider');
   }
 
   presentAlert(title,message) {
@@ -22,7 +25,7 @@ export class UtilProvider {
           {
             text: 'Ok',
             handler: () => {
-              console.log('Okay clicked');
+              // console.log('Okay clicked');
             }
           }
         ]
@@ -38,22 +41,36 @@ export class UtilProvider {
         {
           text: 'Ok',
           handler: () => {
-            console.log('Okay clicked');
+            //console.log('Okay clicked');
           }
-        },{
+        },
+        {
           text:"Share",
           handler: () => {
-            console.log("Share clicked");
+            //console.log('Share clicked');
+            this.shareUrl(title,message);
           }
         }
       ]
     });
     alert.present();
   }
-
-  presentLoading(){
-    
+  shareUrl(title,message){
+    // console.log("inside share fn")
+    this.socialSharing.share(message, title, null , null)
+    // .then(() => {
+    //   // Success!
+    // }).catch(() => {
+    //   // Error!
+    // });
   }
+  // presentLoading() {
+  //   const loader = this.loadingCtrl.create({
+  //     content: "Please wait...",
+  //     duration: 4000
+  //   });
+  //   loader.present();
+  // }
 
   getFromStorage(key){
     return new Promise((resolve,reject)=>{

@@ -1,24 +1,6 @@
 <ion-content id="content">
   <div class="heading">Login</div>
-  <!-- <div class="innerDiv">
-      <ion-label class="labelText" *ngIf="!isShowSignupCard"><p>Welcome to the App!!</p><p>Please Login to continue</p></ion-label>
-      <ion-label class="labelText" *ngIf="isShowSignupCard"><p>Welcome to the App!!</p><p>Please Register yourself</p></ion-label>
-  </div> -->
-  <!-- <div id="noteDiv">
-    <ion-note *ngIf="!isShowSignupCard" id="sideNote">If you're new here <b (click)='changeForm(3)'>Signup</b> now!</ion-note>
-    <ion-note *ngIf="isShowSignupCard" id="sideNote">Already have an account? <b (click)='changeForm(2)'>Login</b> now!</ion-note>
-  </div> -->
   <div class="card">
-  <!-- <ion-card class="card" *ngIf="!isShowSignupCard"> -->
-    <!-- <ion-card-header>
-      <div class="btn">
-        <button class="loginBtn btnActive" (click)="changeForm(2)">Login</button>
-      </div>
-      <div class="btn">
-        <button class="signupBtn btnNotActive" (click)="changeForm(3)">Signup</button>
-      </div>
-    </ion-card-header> -->
-    <!-- <ion-card-content> -->
       <ion-item lines="none"  class="align padding" >
         <ion-input (keyup)="inputValidation(user.email, 4, $event)" type="email" [(ngModel)]='user.email' align="left" placeholder="Email"></ion-input>
         <button ion-button *ngIf="isEmail">
@@ -32,54 +14,8 @@
       Don't have an account?
       <button class="simple-button" (click)="goToSignup()">Sign Up</button><br><br>
       <button ion-button (click)='login(user)' [disabled]="user.password.length<=6">Login<div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div></button>
-    <!-- </ion-card-content> -->
-  <!-- </ion-card> -->
-
-  <!-- Sign up below -->
-
-  <!-- <ion-card class="card" *ngIf="isShowSignupCard" >
-    <ion-card-header>
-      <div class="btn">
-        <button class="loginBtn btnNotActive" (click)="changeForm(2)">Login</button>
-      </div>
-      <div class="btn">
-        <button class="signupBtn btnActive" (click)="changeForm(3)">Signup</button>
-      </div>    
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item lines="none">
-        <ion-input (keyup)="inputValidation(signupUser.name, 2, $event)" type="text" [(ngModel)]='signupUser.name' align="left" placeholder="Full Name" required></ion-input>
-        <button ion-button *ngIf="isName" size="small" fill="clear" color="success" slot="end">
-          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
-        </button>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-input (keyup)="inputValidation(signupUser.phno, 3, $event)" type="tel" [(ngModel)]='signupUser.phno' align="left" placeholder="Phone" required></ion-input>
-        <button ion-button *ngIf="isPhone" max=10 size="small" fill="clear" color="success" slot="end">
-          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
-        </button>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-input (keyup)="inputValidation(signupUser.email, 4, $event)" type="email" [(ngModel)]='signupUser.email' align="left" placeholder="Email" required></ion-input>
-        <button ion-button *ngIf="isEmail" size="small" fill="clear" color="success" slot="end">
-          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
-        </button>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-input (keyup)="inputValidation(signupUser.city, 5, $event)" type="text" [(ngModel)]='signupUser.city' align="left" placeholder="City" required></ion-input>
-        <button ion-button *ngIf="isCity" size="small" fill="clear" color="success" slot="end">
-          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
-        </button>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-input (keyup)="inputValidation(signupUser.password, 6, $event)" [(ngModel)]='signupUser.password' type='password' align="left" placeholder="Password"></ion-input>
-        <button ion-button *ngIf="isPassword" size="small" fill="clear" color="success" slot="end">
-          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
-        </button>
-      </ion-item>
-      <button ion-button (click)='signup(signupUser)' [disabled]="signupUser.password.length<=8">Signup</button>
-    </ion-card-content>
-  </ion-card> -->
   </div>
-  
+  <div class="footer_container">
+    <img class="footer" src="../../assets/imgs/bhumi_cropped.png" style="width:max-content">
+  </div>
 </ion-content>

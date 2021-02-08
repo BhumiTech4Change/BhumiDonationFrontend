@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class SubCatProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello SubCatProvider Provider');
+    // console.log('Hello SubCatProvider Provider');
   }
 
   public subCatArr:any = [];
@@ -18,12 +18,12 @@ export class SubCatProvider {
     this.ngo=ngo;
     this.subCatArr = ngo.subCategories
     this.ngoDesc = ngo.description
-    console.log("Subcategories Arr contains: ",this.subCatArr)
+    //console.log("Subcategories Arr contains: ",this.subCatArr)
   }
 
   sendSingleSubCatData(subCat){
     this.singleSubCat = this.subCatArr.filter(o => o.name === subCat.name);
-    console.log("single subcat is: ",this.singleSubCat)
+    //console.log("single subcat is: ",this.singleSubCat)
   }
 
   

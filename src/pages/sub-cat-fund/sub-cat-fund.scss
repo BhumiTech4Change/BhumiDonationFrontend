@@ -5,8 +5,8 @@ page-sub-cat-fund {
     p{
         text-align: justify;
     }
-    .content{
-        // text-align: center;
+    .cap:first-letter{
+        text-transform: capitalize
     }
     .icon-size{
         font-size: 30px;
@@ -18,9 +18,13 @@ page-sub-cat-fund {
         width:25px;
         color: black;
     }
-    // .image{
-    //     transform: scale(1.55);
-    // }
+    .card-text{
+        font-weight: bold;
+        transform:translateY(50%);
+        font-size: large;
+        color: #e18a23;
+        text-align: center;
+    }
     .top-pad{
         margin-top: 20px;
     }

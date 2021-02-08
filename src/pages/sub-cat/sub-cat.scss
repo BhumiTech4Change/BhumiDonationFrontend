@@ -7,10 +7,13 @@ page-sub-cat {
     p{
         text-align: justify;
     }
+    .cap:first-letter{
+        text-transform: capitalize
+    }
     .card-text{
         font-weight: bold;
         font-size: large;
-        margin-top: 30%;
+        transform:translateY(50%);
         color: #e18a23;
         text-align: center;
     }
