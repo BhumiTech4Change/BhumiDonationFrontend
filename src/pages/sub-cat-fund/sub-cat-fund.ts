@@ -55,7 +55,8 @@ export class SubCatFundPage {
       subCategory:this.ngoSubCat.name,
       ngo:this.subCat.ngo.name,
       ngoId:this.subCat.ngo._id,
-      description:this.subCat.ngo.description
+      description:this.subCat.ngo.description,
+      subCategoryId:this.ngoSubCat.id
     }
 
     // console.log("ngoObject for subProject: ",ngoObj)

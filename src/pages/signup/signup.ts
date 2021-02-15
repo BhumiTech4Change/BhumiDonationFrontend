@@ -68,7 +68,7 @@ export class SignupPage {
     const nameRegex = /^(?=.*[A-Z])(?=.*[a-z]).{3,15}$/;
     const phoneRegex =/^[0-9]{10}$/;
     const emailRegex = /\S+@\S+\.\S+/;
-    const passwordRegex = /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/
+    // const passwordRegex = /(?=(.*[0-9]))(?=.*[\!@#$%^&*()\\[\]{}\-_+=~`|:;"'<>,./?])(?=.*[a-z])(?=(.*[A-Z]))(?=(.*)).{8,}/
     switch(dataType){
       case 2:
         this.isName = nameRegex.test(userData);
