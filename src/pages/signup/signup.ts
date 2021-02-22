@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 // import { ApiProvider } from '../../providers/api/api';
 import { HttpClient } from '@angular/common/http';
 import { SERVER_URL } from '../../providers/environment/environment'
-import { HomePage } from '../home/home';
 import { UtilProvider } from '../../providers/util/util';
 // import { DOCUMENT } from '@angular/common';
 import { AuthPage } from '../auth/auth';
@@ -106,12 +105,15 @@ export class SignupPage {
                 city:user.city
               }).subscribe((res:any)=>{
                 // console.log("Response of login: ",res);
-                this.navCtrl.push(HomePage);
+                this.navCtrl.push(AuthPage);  
                 // this.changeForm(2)
                 //after signup set all regex params to false
               },(err)=>{
                 if(err.status==400){
                   this.util.presentAlert("Hold up","Wait a minute!!!")
+                }
+                if(err.status==401){
+                  this.util.presentAlert("Already Registered","Please login to continue or register with a different email")
                 }
               });
             }else{

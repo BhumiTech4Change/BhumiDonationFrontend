@@ -92,7 +92,7 @@ export class AuthPage {
         // console.log("getToken: ",await this.api.getToken())
         this.api.get("/api/auth").subscribe((userData:any)=>{
           this.util.setToStorage("user",userData);
-          // console.log('UserData', userData)
+          //console.log('UserData', userData)
         },(err)=>{
           console.log("Error is: ",err.error.msg)
         })
