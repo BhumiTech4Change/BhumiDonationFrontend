@@ -29,25 +29,43 @@ export class MyFundraisersPage {
   ionViewDidLoad() {
     // console.log('ionViewDidLoad MyFundraisersPage');
     this.getAllFundraiserURL();
-    
+  }
+
+  async totalFund(){
+    this.total=0;
+    for (let i = 0; i < this.urlArr.length; i++) {
+      // console.log("Amount",this.urlArr[i].amountRaised)
+      this.total += this.urlArr[i].amountRaised;
+      // console.log("total amount",this.total);
+    }
+  }
+
+  async getAllImages(x,arrLength){
+    if(arrLength!=0){
+      this.api.get("/api/ngos").subscribe(async (data:any)=>{
+        data.ngos.filter(async (ngo)=>{
+          if(x.ngoId==ngo._id){
+            x.imageURL = `${SERVER_URL}/uploads/${ngo.logo}`
+            this.urlArr.push(x)
+          }
+        })
+        this.isNew = false;
+        await this.totalFund();
+      })
+    }else{
+      this.isNew = true;
+    }
   }
 
   async getAllFundraiserURL(){
     // console.log("Token in my fundraiser: ",await this.api.getToken())
     this.api.get("/api/fundraisers").subscribe((data:any)=>{
-      // console.log("All fundraisers links are: ",data);
       if(data.fundraisers!=undefined){
         this.urlArr.length=0;
-        data.fundraisers.forEach((singleURL:any)=>{
-          // console.log(singleURL);
+        data.fundraisers.forEach(async (singleURL:any)=>{
           singleURL.link=`${SERVER_URL}/fundraiser/${singleURL.shortUrl}`;
-          this.urlArr.push(singleURL);
+          await this.getAllImages(singleURL,data.fundraisers.length)
         })
-        // console.log("Array is: ",this.urlArr)
-        this.isNew = false;
-        this.totalFund();
-      }else{
-        this.isNew = true;
       }
     })
   }
@@ -55,14 +73,5 @@ export class MyFundraisersPage {
   goToCampaign(shortID){
     // console.log(shortID);
     this.navCtrl.push(CampaignPage,{shortID:shortID});
-  }
-
-  totalFund(){
-    this.total=0;
-    for (let i = 0; i < this.urlArr.length; i++) {
-      // console.log("Amount",this.urlArr[i].amountRaised)
-      this.total += this.urlArr[i].amountRaised;
-      // console.log("total amount",this.total);
-  }
   }
 }

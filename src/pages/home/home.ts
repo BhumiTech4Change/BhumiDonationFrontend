@@ -61,7 +61,7 @@ export class HomePage {
     //pass the ngo name and display the subcats for that ngo.
 
     let ngo = this.ngoArr.filter(o => o.name == name || o.location == location || o.cause == cause);
-    // console.log("Ngo object contains: ",ngo)
+    console.log("Ngo object contains: ",ngo)
     this.subCat.sendAllSubCatData(name,ngo[0]);
     this.navCtrl.push(SubCatPage);
   }
