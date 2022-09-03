@@ -1,13 +1,15 @@
 {
-  "name": "fundraiserApp",
+  "name": "Bhumi Fundraiser",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "BhumiTech4Change",
+  "homepage": "https://bhumi.ngo/",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
+    "buildapk:debug": "ionic cordova build android",
+    "buildapk:prod": "ionic cordova build android --release --prod",
     "lint": "ionic-app-scripts lint"
   },
   "config": {
