@@ -29,7 +29,7 @@ export interface SignupUser{
 export class AuthPage {
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public menuCtrl: MenuController,
     public navParams: NavParams,
     public api:ApiProvider,
@@ -42,9 +42,6 @@ export class AuthPage {
     password:""
   }
 
-  public isShowSignupCard:boolean = false;
-  public actionText:string = "Signup";
-  public alternateMessage:string = "If you're new here";
   public isEmail:boolean = false;
   public isPhone:boolean = false;
   public isName:boolean = false;
@@ -74,57 +71,41 @@ export class AuthPage {
         break;
       default: console.log("Invalid number");
         break;
-    }  
+    }
   }
 
   login(user){
-    // console.log("User is logging in: ",user);
     this.http.post(`${SERVER_URL}/api/auth`,{
       email:user.email,
       password:user.password
     }).subscribe(async (res:any)=>{
-      // console.log("Response of login: ",res)
       if(res.token){
-        // console.log('Token recieved')
-        // this.util.presentLoading();
         await this.util.setToStorage("token",res.token);
         await this.api.getToken();
-        // console.log("getToken: ",await this.api.getToken())
         this.api.get("/api/auth").subscribe((userData:any)=>{
           this.util.setToStorage("user",userData);
-          //console.log('UserData', userData)
         },(err)=>{
           console.log("Error is: ",err.error.msg)
         })
-        this.navCtrl.setRoot(HomePage);
+        await this.navCtrl.setRoot(HomePage);
       }else{
         console.error('Token not provided');
       }
-    },(err)=>{
-      // console.error("Error in login:",err)
-      if(err.status==400){
-        if(err.error.errors[0].param=="email"){
-          this.util.presentAlert("Invalid Email","You have entered an incorrect email!");
-        }else{
-          this.util.presentAlert("Invalid Password","You have entered an incorrect password!");
-        }
+    },(err) => {
+      if (err.status == 400){
         this.util.presentAlert("Invalid Credentials","You have entered an incorrect email/password!");
       }
-      if(err.status==401){
-        if(err.error.msg=="incorrect password"){
+      else if (err.status == 401){
+        if(err.error.msg == "incorrect password"){
           this.util.presentAlert("Invalid Credentials","You have entered an incorrect email/password!");
-        }else{
+        } else {
           this.util.presentAlert("Email not registered","There is no account associated with this email")
         }
       }
-      if(err.status==402){
+      else if (err.status == 402){
         this.util.presentAlert("Email Not verified","Please verify your email before logging in.")
       }
     })
-  }
-
-  forgotPassword(){
-    // console.log("Follow steps to get password")
   }
 
   goToSignup(){

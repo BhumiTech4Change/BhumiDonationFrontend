@@ -27,7 +27,7 @@
                 <ion-col class="cap">{{subCat.ngo.cause}}</ion-col>
               </ion-row>
           </ion-col>
-              
+
         </ion-row>
       </ion-grid>
       <div class="top-bottom-align">
@@ -38,7 +38,7 @@
     </ion-card-content>
   </ion-card>
   <ion-item>
-    SubProjects of the NGO are
+    Sub chapters of the NGO are:
   </ion-item>
   <ion-card *ngFor = "let subCategory of subCatArr" (click)="displaySingleSubCat(subCategory,subCat.ngo.location,subCat.ngo.cause)">
     <ion-card-content>
@@ -59,7 +59,7 @@
               <ion-col class="cap">{{subCat.ngo.cause}}</ion-col>
             </ion-row>
         </ion-col>
-            
+
       </ion-row>
     </ion-grid></ion-card-content>
   </ion-card>

@@ -4,7 +4,6 @@ import { ApiProvider } from '../../providers/api/api';
 import { AuthProvider } from '../../providers/auth/auth';
 import { SubCatProvider } from '../../providers/sub-cat/sub-cat';
 import { SubCatPage } from '../sub-cat/sub-cat';
-import { NotificationPage } from '../notification/notification';
 import { UtilProvider } from '../../providers/util/util';
 import { SERVER_URL } from '../../providers/environment/environment';
 
@@ -13,10 +12,9 @@ import { SERVER_URL } from '../../providers/environment/environment';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
   Server_url = SERVER_URL;
-  show_search:any;
-  searchText:any;
+  show_search: any;
+  searchText: any;
 
   constructor(
     public navCtrl: NavController,
@@ -33,7 +31,6 @@ export class HomePage {
     this.show_search=false;
     this.displayNGO();
     this.util.getFromStorage("user").then((data:any)=>{
-      // console.log(data.user.name);
       this.name = data.user.name;
     });
   }
@@ -46,23 +43,15 @@ export class HomePage {
   displayNGO(){
     //api call to get list of ngo with subcategories from db.
     this.api.get("/api/ngos").subscribe((data:any)=>{
-      // console.log("Result of get ngo is: ",data)
       data.ngos.forEach(ngo => {
         this.ngoArr.push(ngo)
       });
     })
-    // console.log("Array contains: ",this.ngoArr)
   }
 
-  notifications(){
-    this.navCtrl.push(NotificationPage);
-  }
-  callNewPage(name,location,cause){
+  callNewPage(ngo){
     //pass the ngo name and display the subcats for that ngo.
-
-    let ngo = this.ngoArr.filter(o => o.name == name || o.location == location || o.cause == cause);
-    console.log("Ngo object contains: ",ngo)
-    this.subCat.sendAllSubCatData(name,ngo[0]);
+    this.subCat.sendAllSubCatData(ngo);
     this.navCtrl.push(SubCatPage);
   }
   showSearch(){

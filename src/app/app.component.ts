@@ -5,8 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AuthPage } from '../pages/auth/auth';
 import { ApiProvider } from '../providers/api/api';
-import { UtilProvider } from '../providers/util/util'; 
-import { AuthProvider } from '../providers/auth/auth';
+import { UtilProvider } from '../providers/util/util';
 import { ProfilePage } from '../pages/profile/profile';
 import { MyFundraisersPage } from '../pages/my-fundraisers/my-fundraisers';
 
@@ -21,11 +20,10 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(
-    public platform: Platform, 
-    public statusBar: StatusBar, 
+    public platform: Platform,
+    public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public api: ApiProvider,
-    public auth: AuthProvider,
     public util: UtilProvider
   ) {
     this.initializeApp();
@@ -40,7 +38,6 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      // this.api.setAllKeys();
     });
   }
 
