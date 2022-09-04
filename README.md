@@ -19,3 +19,6 @@ or
 > ionic cordova build android --prod --release 
 and
 > jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore apk-name.apk bhumi
+
+### More info:
+> https://ionicframework.com/docs/deployment/play-store
