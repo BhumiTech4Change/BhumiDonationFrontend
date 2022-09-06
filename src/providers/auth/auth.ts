@@ -5,12 +5,7 @@ import { UtilProvider } from '../util/util';
 @Injectable()
 export class AuthProvider {
 
-  constructor(
-    private util: UtilProvider,
-    // private api: ApiProvider,
-  ) {
-    // console.log('Hello AuthProvider Provider');
-  }
+  constructor(private util: UtilProvider) {}
 
   public user:any = {
     name:'',
@@ -22,7 +17,6 @@ export class AuthProvider {
   public loggedIn:boolean = false;
 
   async openProfile(path:any) {
-    // console.log("Path is: ",path)
     if(path!=""){
      await this.util.getFromStorage('user').then((data:any)=>{
         this.user.name = data.user.name;

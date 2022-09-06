@@ -10,15 +10,12 @@ export class ApiProvider {
   constructor(
     public http: HttpClient,
     private util: UtilProvider,
-  ) {
-    // console.log('Hello ApiProvider Provider');
-  }
-  
+  ) {}
+
   public token:any = "";
 
   setAllKeys(){
     this.util.getAllKeysOfStorage().then((keys:any)=>{
-      // console.log("Keys in storage are: ",keys);
       for (let i = 0; i < keys.length; i++) {
         this.util.setToStorage(keys[i], null);
       }
@@ -28,7 +25,6 @@ export class ApiProvider {
   async getToken(){
     return await new Promise((resolve,reject)=>{
       this.util.getFromStorage("token").then((token:any)=>{
-        // console.log("Token in api.ts is: ",token)
         if(token!=undefined){
           this.token = `Bearer ${token}`;
           resolve(this.token);

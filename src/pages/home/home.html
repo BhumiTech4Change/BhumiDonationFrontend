@@ -6,8 +6,7 @@
     <ion-title class="align-title">
       <span class="bold">Hello,</span><span class="name">{{name}}</span>
       <span>
-        <!-- <ion-icon (click)="notifications()" color="secondary" class="icon-size right" name="notifications"></ion-icon> -->
-        <ion-icon (click)="showSearch()" class="right right-gap" color="secondary" name="prefix-filter-solid"></ion-icon>
+        <ion-icon (click)="showSearch()" class="right right-gap" color="secondary" name="search"></ion-icon>
       </span>
     </ion-title>
   </ion-navbar>
@@ -15,8 +14,7 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- <h3>Here are the available NGO's, please select any one to proceed</h3>  -->
-  <ion-card class="card" *ngFor="let ngo of ngoArr | search: searchText" (click)="callNewPage(ngo.name , ngo.location , ngo.cause)">
+  <ion-card class="card" *ngFor="let ngo of ngoArr | search: searchText" (click)="callNewPage(ngo)">
     <ion-card-header class="cap">
       {{ngo.name}}
     </ion-card-header>
@@ -37,10 +35,9 @@
                 <ion-col class="cap">{{ngo.cause}}</ion-col>
               </ion-row>
           </ion-col>
-              
+
         </ion-row>
       </ion-grid>
     </ion-card-content>
   </ion-card>
-  <!-- <button ion-button secondary menuToggle (click)="callOpenProfile()">View Profile</button> -->
 </ion-content>

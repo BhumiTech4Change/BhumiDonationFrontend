@@ -6,45 +6,38 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { AuthPage } from '../pages/auth/auth';
-import { NotificationPage } from '../pages/notification/notification'
-
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ApiProvider } from '../providers/api/api';
 import { UtilProvider } from '../providers/util/util';
 import { AuthProvider } from '../providers/auth/auth';
-import { SubCatPage } from '../pages/sub-cat/sub-cat';
 import { SubCatProvider } from '../providers/sub-cat/sub-cat';
-import { SubCatFundPage } from '../pages/sub-cat-fund/sub-cat-fund';
-import { ProfilePage } from '../pages/profile/profile';
-import { MyFundraisersPage } from '../pages/my-fundraisers/my-fundraisers';
-import { EditProfilePage } from '../pages/edit-profile/edit-profile';
-import { SignupPage } from '../pages/signup/signup';
-import { CampaignPage } from '../pages/campaign/campaign';
-import { SearchPipe } from '../pipes/search/search';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { AuthPageModule } from "../pages/auth/auth.module";
+import { SubCatPageModule } from "../pages/sub-cat/sub-cat.module";
+import { SubCatFundPageModule } from "../pages/sub-cat-fund/sub-cat-fund.module";
+import { ProfilePageModule } from "../pages/profile/profile.module";
+import { MyFundraisersPageModule } from "../pages/my-fundraisers/my-fundraisers.module";
+import { SignupPageModule } from "../pages/signup/signup.module";
+import { CampaignPageModule } from "../pages/campaign/campaign.module";
+import { PipesModule } from "../pipes/pipes.module";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
-    AuthPage,
-    SubCatPage,
-    SubCatFundPage,
-    ProfilePage,
-    MyFundraisersPage,
-    EditProfilePage,
-    NotificationPage,
-    SignupPage,
-    CampaignPage,
-    SearchPipe
+    HomePage
   ],
   imports: [
+    AuthPageModule,
+    SubCatPageModule,
+    SubCatFundPageModule,
+    ProfilePageModule,
+    MyFundraisersPageModule,
+    SignupPageModule,
+    CampaignPageModule,
     BrowserModule,
+    PipesModule,
     HttpClientModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
@@ -52,22 +45,15 @@ import { SocialSharing } from '@ionic-native/social-sharing';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
-    AuthPage,
-    SubCatPage,
-    SubCatFundPage,
-    ProfilePage,
-    MyFundraisersPage,
-    EditProfilePage,
-    NotificationPage,
-    SignupPage,
-    CampaignPage,
+    HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {
+      provide: ErrorHandler,
+      useClass: IonicErrorHandler
+    },
     ApiProvider,
     UtilProvider,
     AuthProvider,

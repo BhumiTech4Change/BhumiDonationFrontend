@@ -4,30 +4,18 @@
       <ion-item class="align padding" lines="none">
         <ion-input class="align" (keyup)="inputValidation(signupUser.name, 2, $event)" type="text" [(ngModel)]='signupUser.name' placeholder="Full Name" required></ion-input>
       </ion-item>
-      <!-- <ion-item no-lines *ngIf="!isName">
-        <p>username is required</p>
-      </ion-item> -->
 
       <ion-item class="align padding" lines="none">
         <ion-input (keyup)="inputValidation(signupUser.phno, 3, $event)" type="tel" [(ngModel)]='signupUser.phno' placeholder="Phone" required></ion-input>
       </ion-item>
-      <!-- <ion-item no-lines *ngIf="!isPhone">
-        <p>Phone is required</p>
-      </ion-item> -->
 
       <ion-item class="align padding" lines="none">
         <ion-input (keyup)="inputValidation(signupUser.email, 4, $event)" type="email" [(ngModel)]='signupUser.email' placeholder="Email" required></ion-input>
       </ion-item>
-      <!-- <ion-item no-lines *ngIf="!isEmail">
-        <p>Email is required</p>
-      </ion-item> -->
 
       <ion-item class="align padding" lines="none">
         <ion-input (keyup)="inputValidation(signupUser.city, 5, $event)" type="text" [(ngModel)]='signupUser.city' placeholder="City" required></ion-input>
       </ion-item>
-      <!-- <ion-item no-lines *ngIf="!isCity">
-        <p>City is required</p>
-      </ion-item> -->
 
       <ion-item class="align padding" lines="none">
         <ion-input (keyup)="inputValidation(signupUser.password, 6, $event)" [(ngModel)]='signupUser.password' type='password' placeholder="Password" required></ion-input>
@@ -39,13 +27,13 @@
         </li>
         <li class="align-left" no-lines *ngIf="!isSpecialChar">
           <p>A special character is required</p>
-        </li> 
+        </li>
         <li class="align-left" no-lines *ngIf="!isNum">
           <p>A number is required</p>
-        </li> 
+        </li>
         <li class="align-left" no-lines *ngIf="signupUser.password.length<8">
           <p>Minimum 8 characters are required</p>
-        </li> 
+        </li>
       </ul>
 
       <div class="login">
@@ -55,7 +43,4 @@
       <br>
       <button ion-button (click)='signup(signupUser)' [disabled]="signupUser.password.length<=8">Signup<div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div></button>
   </div>
-  <!-- <div class="footer_container">
-    <img class="footer" src="../../assets/imgs/bhumi_cropped.png" style="width:max-content">
-  </div> -->
 </ion-content>
