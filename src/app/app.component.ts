@@ -8,6 +8,8 @@ import { ApiProvider } from '../providers/api/api';
 import { UtilProvider } from '../providers/util/util';
 import { ProfilePage } from '../pages/profile/profile';
 import { MyFundraisersPage } from '../pages/my-fundraisers/my-fundraisers';
+import { HomePage } from '../pages/home/home';
+import { AuthProvider } from '../providers/auth/auth';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +17,7 @@ import { MyFundraisersPage } from '../pages/my-fundraisers/my-fundraisers';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AuthPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -24,13 +26,14 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public api: ApiProvider,
-    public util: UtilProvider
+    public util: UtilProvider,
+    public auth: AuthProvider
   ) {
     this.initializeApp();
     this.pages = [
-      {title:"Profile", component:ProfilePage},
-      {title:"Past Donations", component:MyFundraisersPage},
-      {title:"Log out", component:AuthPage}
+      { title:"Profile", component: ProfilePage },
+      { title:"Past Donations", component: MyFundraisersPage },
+      { title:"Log out", component: AuthPage }
     ]
   }
 
@@ -43,7 +46,10 @@ export class MyApp {
     });
   }
 
-  openPage(page){
+  onNavMenuItemClicked(page) {
+    if (page.title === "Log out") {
+      this.auth.logout();
+    }
     this.nav.push(page.component);
   }
 }

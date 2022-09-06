@@ -16,36 +16,35 @@ export class HomePage {
   show_search: any;
   searchText: any;
 
+  public ngoArr: any = [];
+
   constructor(
     public navCtrl: NavController,
     public auth: AuthProvider,
     public subCat: SubCatProvider,
-    private util:UtilProvider,
-    public api:ApiProvider,
+    private util: UtilProvider,
+    public api: ApiProvider,
     public menuCtrl: MenuController
   ) { this.menuCtrl.enable(true, 'myMenu'); }
 
-  public name:string = "";
+  public name: string = "";
 
-  ionViewDidLoad(){
-    this.show_search=false;
+  ionViewCanEnter(): boolean | Promise<any> {
+    return this.auth.isAuthenticated(this.navCtrl);
+  }
+
+  ionViewDidEnter() {
+    this.show_search = false;
     this.displayNGO();
     this.util.getFromStorage("user").then((data:any)=>{
       this.name = data.user.name;
     });
   }
-  public ngoArr:any = [];
-
-  callOpenProfile(){
-    this.auth.openProfile('login');
-  }
 
   displayNGO(){
     //api call to get list of ngo with subcategories from db.
-    this.api.get("/api/ngos").subscribe((data:any)=>{
-      data.ngos.forEach(ngo => {
-        this.ngoArr.push(ngo)
-      });
+    this.api.get("/api/ngos").subscribe((data:any) => {
+      this.ngoArr = data.ngos;
     })
   }
 
@@ -54,14 +53,15 @@ export class HomePage {
     this.subCat.sendAllSubCatData(ngo);
     this.navCtrl.push(SubCatPage);
   }
+
   showSearch(){
     let element = document.querySelector('#search');
-    if(this.show_search==false){
-      this.show_search=true;
+    if(this.show_search == false){
+      this.show_search = true;
       element.classList.remove('disable');
     }
     else{
-      this.show_search=false;
+      this.show_search = false;
       element.classList.add('disable');
     }
   }

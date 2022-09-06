@@ -4,6 +4,7 @@ import { IonicPage } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { SERVER_URL } from '../../providers/environment/environment';
 import { CampaignPage } from '../campaign/campaign';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @IonicPage()
 @Component({
@@ -19,10 +20,15 @@ export class MyFundraisersPage {
   constructor(
     private api: ApiProvider,
     public navCtrl: NavController,
+    public auth: AuthProvider
   ) { }
 
   ionViewDidLoad() {
     this.getAllFundraiserURL();
+  }
+
+  ionViewCanEnter(): boolean | Promise<any> {
+    return this.auth.isAuthenticated(this.navCtrl);
   }
 
   async totalFund(){

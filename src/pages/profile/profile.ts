@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import {IonicPage, NavController} from 'ionic-angular';
 import { UtilProvider } from '../../providers/util/util';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @IonicPage()
 @Component({
@@ -10,23 +11,23 @@ import { UtilProvider } from '../../providers/util/util';
 export class ProfilePage {
 
   constructor(
-    public util: UtilProvider
+    public util: UtilProvider,
+    public auth: AuthProvider,
+    public navCtrl: NavController
   ) {  }
 
   ionViewDidLoad() {
-    this.displayUserData()
+    this.user = this.auth.user;
   }
 
-  public user:any = {
-    name:"",
-    email:"",
-    phno:"",
-    city:""
+  ionViewCanEnter(): boolean | Promise<any> {
+    return this.auth.isAuthenticated(this.navCtrl);
   }
 
-  async displayUserData(){
-    await this.util.getFromStorage("user").then((data:any)=>{
-      this.user = data.user;
-    })
+  public user: any = {
+    name: "",
+    email: "",
+    phno: "",
+    city: ""
   }
 }

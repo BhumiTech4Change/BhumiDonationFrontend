@@ -14,14 +14,14 @@ import { UtilProvider } from '../providers/util/util';
 import { AuthProvider } from '../providers/auth/auth';
 import { SubCatProvider } from '../providers/sub-cat/sub-cat';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { AuthPageModule } from "../pages/auth/auth.module";
-import { SubCatPageModule } from "../pages/sub-cat/sub-cat.module";
-import { SubCatFundPageModule } from "../pages/sub-cat-fund/sub-cat-fund.module";
-import { ProfilePageModule } from "../pages/profile/profile.module";
-import { MyFundraisersPageModule } from "../pages/my-fundraisers/my-fundraisers.module";
-import { SignupPageModule } from "../pages/signup/signup.module";
-import { CampaignPageModule } from "../pages/campaign/campaign.module";
-import { PipesModule } from "../pipes/pipes.module";
+import { AuthPageModule } from '../pages/auth/auth.module';
+import { SubCatPageModule } from '../pages/sub-cat/sub-cat.module';
+import { SubCatFundPageModule } from '../pages/sub-cat-fund/sub-cat-fund.module';
+import { ProfilePageModule } from '../pages/profile/profile.module';
+import { MyFundraisersPageModule } from '../pages/my-fundraisers/my-fundraisers.module';
+import { SignupPageModule } from '../pages/signup/signup.module';
+import { CampaignPageModule } from '../pages/campaign/campaign.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
