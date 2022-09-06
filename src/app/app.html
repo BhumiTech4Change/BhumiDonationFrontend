@@ -6,7 +6,7 @@
   </ion-header>
 
   <ion-content>
-    <ion-list class="list" *ngFor="let page of pages" (click)="openPage(page)">
+    <ion-list class="list" *ngFor="let page of pages" (click)="onNavMenuItemClicked(page)">
       <button class="menu-button underline" menuClose ion-item>{{page.title}}</button>
     </ion-list>
     <div class="footer_container">

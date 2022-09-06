@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UtilProvider } from '../../providers/util/util';
 import { ApiProvider } from '../../providers/api/api';
 import { SERVER_URL } from '../../providers/environment/environment';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @IonicPage()
 @Component({
@@ -21,14 +22,17 @@ export class CampaignPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private util:UtilProvider,
-    public api:ApiProvider
+    private util: UtilProvider,
+    public api: ApiProvider,
+    public authProvider: AuthProvider
     ) {}
 
-  ionViewDidLoad() {
-    this.util.getFromStorage("user").then((data:any)=>{
-      this.name = data.user.name;
-    });
+  ionViewCanEnter(): boolean | Promise<any> {
+    return this.authProvider.isAuthenticated(this.navCtrl);
+  }
+
+  ionViewDidEnter() {
+    this.name = this.authProvider.user.name;
     this.getSpecificFundraiserURL();
   }
 
@@ -36,9 +40,8 @@ export class CampaignPage {
     this.shortURL = await this.navParams.get("shortID");
     this.link = `${SERVER_URL}/fundraiser/${this.shortURL}`;
     this.api.get(`/api/fundraisers/${this.shortURL}`).subscribe((data:any)=>{
-      if(data.fundraiser!=undefined){
-        this.url=data;
-        console.log("data is: ",this.url)
+      if(!!data.fundraiser){
+        this.url = data;
         this.amount = this.url.fundraiser.amountRaised;
         if(this.url.fundraiser.donors[0]!=undefined){
           this.url.fundraiser.donors.forEach(donor => {

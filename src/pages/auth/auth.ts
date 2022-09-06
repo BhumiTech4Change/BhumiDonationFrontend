@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,MenuController } from 'ionic-angular';
+import { IonicPage, NavController ,MenuController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { HttpClient } from '@angular/common/http';
 import { SERVER_URL } from '../../providers/environment/environment'
 import { HomePage } from '../home/home';
 import { SignupPage } from '../signup/signup'
 import { UtilProvider } from '../../providers/util/util';
+import { AuthProvider } from '../../providers/auth/auth';
 
 export interface User{
   email:string,
-  password:string
-}
-
-export interface SignupUser{
-  name:string,
-  email:string,
-  city:string,
-  phno:string,
   password:string
 }
 
@@ -25,28 +18,27 @@ export interface SignupUser{
   selector: 'page-auth',
   templateUrl: 'auth.html'
 })
-
 export class AuthPage {
 
   constructor(
     public navCtrl: NavController,
     public menuCtrl: MenuController,
-    public navParams: NavParams,
-    public api:ApiProvider,
-    private http:HttpClient,
-    private util:UtilProvider,
+    public api: ApiProvider,
+    private http: HttpClient,
+    private util: UtilProvider,
+    private authProvider: AuthProvider
   ) { this.menuCtrl.enable(false, 'myMenu'); }
 
-  public user:User = {
+  public user: User = {
     email:"",
     password:""
   }
 
-  public isEmail:boolean = false;
-  public isPhone:boolean = false;
-  public isName:boolean = false;
-  public isCity:boolean = false;
-  public isPassword:boolean = false;
+  public isEmail: boolean = false;
+  public isPhone: boolean = false;
+  public isName: boolean = false;
+  public isCity: boolean = false;
+  public isPassword: boolean = false;
 
   inputValidation(userData,dataType,ev){
     const nameRegex = /^[ a-zA-Z]+$/;
@@ -80,10 +72,9 @@ export class AuthPage {
       password:user.password
     }).subscribe(async (res:any)=>{
       if(res.token){
-        await this.util.setToStorage("token",res.token);
-        await this.api.getToken();
+        await this.authProvider.setToken( res.token);
         this.api.get("/api/auth").subscribe((userData:any)=>{
-          this.util.setToStorage("user",userData);
+          this.authProvider.setUser(userData);
         },(err)=>{
           console.log("Error is: ",err.error.msg)
         })
