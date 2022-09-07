@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UtilProvider } from '../../providers/util/util';
+import { IonicPage, NavParams } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { SERVER_URL } from '../../providers/environment/environment';
 import { AuthProvider } from '../../providers/auth/auth';
@@ -20,15 +19,13 @@ export class CampaignPage {
   public donors:any = [];
 
   constructor(
-    public navCtrl: NavController,
     public navParams: NavParams,
-    private util: UtilProvider,
     public api: ApiProvider,
     public authProvider: AuthProvider
     ) {}
 
   ionViewCanEnter(): boolean | Promise<any> {
-    return this.authProvider.isAuthenticated(this.navCtrl);
+    return this.authProvider.isAuthenticated();
   }
 
   ionViewDidEnter() {

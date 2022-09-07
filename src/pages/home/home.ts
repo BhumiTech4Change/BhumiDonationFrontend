@@ -30,7 +30,7 @@ export class HomePage {
   public name: string = "";
 
   ionViewCanEnter(): boolean | Promise<any> {
-    return this.auth.isAuthenticated(this.navCtrl);
+    return this.auth.isAuthenticated();
   }
 
   ionViewDidEnter() {

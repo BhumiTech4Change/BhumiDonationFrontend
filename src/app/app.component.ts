@@ -48,7 +48,7 @@ export class MyApp {
 
   onNavMenuItemClicked(page) {
     if (page.title === "Log out") {
-      this.auth.logout();
+      return this.auth.logout();
     }
     this.nav.push(page.component);
   }
