@@ -28,7 +28,7 @@ export class MyFundraisersPage {
   }
 
   ionViewCanEnter(): boolean | Promise<any> {
-    return this.auth.isAuthenticated(this.navCtrl);
+    return this.auth.isAuthenticated();
   }
 
   async totalFund(){

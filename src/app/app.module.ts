@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
@@ -22,6 +22,7 @@ import { MyFundraisersPageModule } from '../pages/my-fundraisers/my-fundraisers.
 import { SignupPageModule } from '../pages/signup/signup.module';
 import { CampaignPageModule } from '../pages/campaign/campaign.module';
 import { PipesModule } from '../pipes/pipes.module';
+import { HttpRequestInterceptor } from "../providers/interceptor/http-request-interceptor";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,11 @@ import { PipesModule } from '../pipes/pipes.module';
   providers: [
     StatusBar,
     SplashScreen,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true
+    },
     {
       provide: ErrorHandler,
       useClass: IonicErrorHandler

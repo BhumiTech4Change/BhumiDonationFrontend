@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { UtilProvider } from '../../providers/util/util';
 import { AuthProvider } from '../../providers/auth/auth';
 
@@ -21,7 +21,7 @@ export class ProfilePage {
   }
 
   ionViewCanEnter(): boolean | Promise<any> {
-    return this.auth.isAuthenticated(this.navCtrl);
+    return this.auth.isAuthenticated();
   }
 
   public user: any = {

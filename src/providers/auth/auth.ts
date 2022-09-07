@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+import { App } from 'ionic-angular';
+
 import { UtilProvider } from '../util/util';
-import { NavController } from "ionic-angular";
 import { AuthPage } from "../../pages/auth/auth";
 
 @Injectable()
 export class AuthProvider {
 
-  constructor(private util: UtilProvider) {}
+  constructor(private util: UtilProvider,
+              private app: App) {}
 
   public user: any = {
     name:'',
@@ -27,7 +29,7 @@ export class AuthProvider {
   public token: any = "";
 
   setToken(token) {
-    this.token = `Bearer ${token}`;
+    this.token = token;
     return this.util.setToStorage("token", token);
   }
 
@@ -36,24 +38,25 @@ export class AuthProvider {
     return this.util.setToStorage("user", user);
   }
 
-  isAuthenticated(nav: NavController): boolean | Promise<any> {
+  isAuthenticated(): boolean | Promise<any> {
     return this.util.getFromStorage("token").then(token => {
       if (token == null) {
-        setTimeout(() => { nav.setRoot(AuthPage) }, 0);
+        setTimeout(() => { this.app.getActiveNav().setRoot(AuthPage) }, 0);
         return false
       } else {
-        this.token = `Bearer ${token}`;
+        this.token = token;
         this.loadUser();
         return true
       }
     }).catch(() => {
-      setTimeout(() => { nav.setRoot(AuthPage) }, 0);
+      setTimeout(() => { this.app.getActiveNav().setRoot(AuthPage) }, 0);
       return false
     });
   }
 
   logout(): boolean | Promise<any> {
     this.token = null;
-    return this.util.setToStorage("token", null);
+    this.util.setToStorage("token", null);
+    return this.app.getActiveNav().setRoot(AuthPage);
   }
 }
