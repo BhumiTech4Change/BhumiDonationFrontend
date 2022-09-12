@@ -13,18 +13,22 @@ export class UtilProvider {
     private socialSharing: SocialSharing,
   ) {}
 
-  presentAlert(title,message) {
-      let alert = this.alertCtrl.create({
-        title,
-        message,
-        buttons: [
-          {
-            text: 'Ok',
-            handler: () => {}
-          }
-        ]
-      });
-      alert.present();
+  presentAlert(title, message) {
+    this.presentAlertWithCallback(title, message, () => {});
+  }
+
+  presentAlertWithCallback(title, message, callback) {
+    let alert = this.alertCtrl.create({
+      title,
+      message,
+      buttons: [
+        {
+          text: 'Ok',
+          handler: callback
+        }
+      ]
+    });
+    alert.present();
   }
 
   presentShareAlert(title,message) {

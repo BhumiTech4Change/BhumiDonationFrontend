@@ -1,0 +1,15 @@
+<ion-content padding>
+  <div class="heading">Reset Password</div>
+  <div class="card">
+      <ion-item lines="none"  class="align padding" >
+        <ion-input (keyup)="validateEmail(user.email)" type="email" [(ngModel)]='user.email' align="left" placeholder="Email"></ion-input>
+        <button ion-button *ngIf="isValidEmail">
+          <ion-icon slot="icon-only" name="checkmark-circle-outline"></ion-icon>
+        </button>
+      </ion-item>
+      <button ion-button (click)='reset(user)' [disabled]="!isValidEmail">Reset password<div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div></button>
+  </div>
+  <div class="footer_container">
+    <img class="footer" src="../../assets/imgs/bhumi_cropped.png" style="width:max-content">
+  </div>
+</ion-content>

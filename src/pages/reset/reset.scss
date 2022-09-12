@@ -1,0 +1,33 @@
+page-reset {
+  .button-div{
+    background-color: black;
+    margin-left: 10px
+  }
+  .heading{
+    padding-top: 30vh;
+    color:#75AA3B;
+    text-align: center;
+    font-size: 30px;
+  }
+  .simple-button{
+    background-color: white;
+    color:#75AA3B ;
+  }
+  .align{
+    text-align: center;
+  }
+  .padding{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: large;
+  }
+  .card{
+    text-align: center;
+  }
+  .footer_container{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,0);
+    bottom: 2%;
+  }
+}
