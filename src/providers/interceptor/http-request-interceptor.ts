@@ -43,6 +43,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       if (error instanceof HttpErrorResponse) {
         if (error.status === 401) {
           this.authProvider.logout();
+          return Observable.of(error);
         }
         return _throw(error);
       }
