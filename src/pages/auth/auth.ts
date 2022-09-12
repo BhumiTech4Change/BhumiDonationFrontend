@@ -7,6 +7,7 @@ import { HomePage } from '../home/home';
 import { SignupPage } from '../signup/signup'
 import { UtilProvider } from '../../providers/util/util';
 import { AuthProvider } from '../../providers/auth/auth';
+import { ResetPage} from '../reset/reset';
 
 export interface User{
   email:string,
@@ -101,5 +102,9 @@ export class AuthPage {
 
   goToSignup(){
     this.navCtrl.push(SignupPage)
+  }
+
+  goToResetPassword() {
+    this.navCtrl.push(ResetPage);
   }
 }

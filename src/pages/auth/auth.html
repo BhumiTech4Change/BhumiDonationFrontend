@@ -13,6 +13,8 @@
       </ion-item>
       Don't have an account?
       <button class="simple-button" (click)="goToSignup()">Sign Up</button><br><br>
+      Forgot your password?
+      <button class="simple-button" (click)="goToResetPassword()">Reset password</button><br><br>
       <button ion-button (click)='login(user)' [disabled]="user.password.length<=6">Login<div class="button-div"><ion-icon name="prefix-angle-right-solid"></ion-icon></div></button>
   </div>
   <div class="footer_container">

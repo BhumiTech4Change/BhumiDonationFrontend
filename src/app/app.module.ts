@@ -23,6 +23,7 @@ import { SignupPageModule } from '../pages/signup/signup.module';
 import { CampaignPageModule } from '../pages/campaign/campaign.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { HttpRequestInterceptor } from "../providers/interceptor/http-request-interceptor";
+import { ResetPageModule } from "../pages/reset/reset.module";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { HttpRequestInterceptor } from "../providers/interceptor/http-request-in
     BrowserModule,
     PipesModule,
     HttpClientModule,
+    ResetPageModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
   ],
