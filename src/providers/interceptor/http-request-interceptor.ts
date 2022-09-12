@@ -8,6 +8,7 @@ import {
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AuthProvider } from '../auth/auth';
+import { _throw } from 'rxjs/observable/throw';
 
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
@@ -40,11 +41,10 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       }
     }).catch(error => {
       if (error instanceof HttpErrorResponse) {
-        console.log({'error': error})
         if (error.status === 401) {
           this.authProvider.logout();
         }
-        return Observable.of(error);
+        return _throw(error);
       }
     });
   }
