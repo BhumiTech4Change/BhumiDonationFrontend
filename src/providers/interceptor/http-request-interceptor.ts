@@ -41,7 +41,8 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       }
     }).catch(error => {
       if (error instanceof HttpErrorResponse) {
-        if (error.status === 401) {
+        console.log(error)
+        if (error.status === 401 && error.error.msg === 'Token is not valid') {
           this.authProvider.logout();
           return Observable.of(error);
         }

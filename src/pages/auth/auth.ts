@@ -88,7 +88,7 @@ export class AuthPage {
         this.util.presentAlert("Invalid Credentials","You have entered an incorrect email/password!");
       }
       else if (err.status == 401){
-        if(err.error.msg == "incorrect password"){
+        if(err.error.msg == "Incorrect password"){
           this.util.presentAlert("Invalid Credentials","You have entered an incorrect email/password!");
         } else {
           this.util.presentAlert("Email not registered","There is no account associated with this email")
